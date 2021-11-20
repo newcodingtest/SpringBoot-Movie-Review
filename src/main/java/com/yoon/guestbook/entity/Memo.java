@@ -1,4 +1,4 @@
-package com.yoon.ex1.entity;
+package com.yoon.guestbook.entity;
 
 
 import lombok.*;

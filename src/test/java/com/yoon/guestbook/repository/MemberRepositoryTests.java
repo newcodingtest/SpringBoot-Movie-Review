@@ -1,7 +1,6 @@
-package com.yoon.ex1.repository;
+package com.yoon.guestbook.repository;
 
-import com.yoon.ex1.entity.Memo;
-import org.junit.jupiter.api.DisplayName;
+import com.yoon.guestbook.entity.Memo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,9 +1,8 @@
-package com.yoon.ex1.dto;
+package com.yoon.guestbook.dto;
 
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data

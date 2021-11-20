@@ -1,13 +1,12 @@
-package com.yoon.ex1.controller;
+package com.yoon.guestbook.controller;
 
 
-import com.yoon.ex1.dto.SampleDTO;
+import com.yoon.guestbook.dto.SampleDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;

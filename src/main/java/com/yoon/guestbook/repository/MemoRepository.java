@@ -1,6 +1,6 @@
-package com.yoon.ex1.repository;
+package com.yoon.guestbook.repository;
 
-import com.yoon.ex1.entity.Memo;
+import com.yoon.guestbook.entity.Memo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
