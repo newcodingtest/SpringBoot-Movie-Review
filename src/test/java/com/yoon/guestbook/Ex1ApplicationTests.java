@@ -1,4 +1,4 @@
-package com.yoon.ex1;
+package com.yoon.guestbook;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
