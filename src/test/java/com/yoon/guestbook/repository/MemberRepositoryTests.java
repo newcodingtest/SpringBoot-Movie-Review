@@ -1,5 +1,6 @@
 package com.yoon.guestbook.repository;
 
+import com.yoon.guestbook.entity.Member;
 import com.yoon.guestbook.entity.Memo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class MemberRepositoryTests {
 
     @Autowired
     MemoRepository memoRepository;
+
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test
     public void insertTest(){
@@ -127,4 +131,20 @@ public class MemberRepositoryTests {
     public void deleteQueryMethods() {
         memoRepository.deleteMemoByMnoLessThan(10L);
     }
+
+    @Test
+    public void insertMemberTest(){
+
+        IntStream.rangeClosed(1,100).forEach(i -> {
+            Member member = Member.builder()
+                    .email("user"+i+"@aaa.com")
+                    .password("1111")
+                    .name("USER"+i)
+                    .build();
+
+            memberRepository.save(member);
+        });
+    }
+
+
 }
