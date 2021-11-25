@@ -6,12 +6,15 @@ import com.yoon.guestbook.dto.PageResultDTO;
 import com.yoon.guestbook.entity.Board;
 import com.yoon.guestbook.entity.Member;
 import com.yoon.guestbook.repository.BoardRepository;
+import com.yoon.guestbook.repository.ReplyRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.function.Function;
 
@@ -21,6 +24,8 @@ import java.util.function.Function;
 public class BoardServiceImpl implements BoardService{
 
     private final BoardRepository repository;
+
+    private final ReplyRepository replyRepository;
 
     @Override
     public Long register(BoardDTO dto) {
@@ -57,4 +62,27 @@ public class BoardServiceImpl implements BoardService{
 
         return entityToDTO((Board)arr[0], (Member)arr[1], (Long)arr[2]);
     }
+
+    @Transactional
+    @Override
+    public void removeWithReplies(Long bno) {
+
+      replyRepository.deleteByBno(bno); //댓글부터 삭제
+      
+      repository.deleteById(bno); // 글 삭제
+    }
+
+    @Transactional
+    @Override
+    public void modify(BoardDTO boardDTO) {
+
+        Board board = repository.getOne(boardDTO.getBno());
+
+        board.changeTitle(boardDTO.getTitle());
+        board.changeContent(boardDTO.getContent());
+
+        repository.save(board);
+    }
+
+
 }

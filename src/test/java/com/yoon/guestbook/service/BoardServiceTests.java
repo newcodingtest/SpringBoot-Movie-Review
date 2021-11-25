@@ -27,11 +27,8 @@ public class BoardServiceTests {
 
     @Test
     public void listTest(){
-
         PageRequestDTO pageRequestDTO = new PageRequestDTO();
-
         PageResultDTO<BoardDTO, Object[]> result = boardService.getList(pageRequestDTO);
-
         for(BoardDTO boardDTO : result.getDtoList()){
             System.out.println(boardDTO);
         }
@@ -39,12 +36,26 @@ public class BoardServiceTests {
 
     @Test
     public void getTest(){
-
-        Long bno = 100L;
-
+        Long bno = 1L;
         BoardDTO boardDTO = boardService.get(bno);
-
         System.out.println(boardDTO);
+    }
+
+    @Test
+    public void removeTest(){
+        Long bno = 1L;
+        boardService.removeWithReplies(bno);
+    }
+
+    @Test
+    public void modifyTest(){
+        BoardDTO boardDTO = BoardDTO.builder()
+                .bno(2L)
+                .title("제목 변경합니다")
+                .content("내용 변경합니다.")
+                .build();
+
+        boardService.modify(boardDTO);
     }
 
 
