@@ -21,6 +21,6 @@ public class Reply extends BaseEntity{ // Reply 테이블은 Board 테이블을 
 
     private String replyer;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Board board; //연관관계 지정
 }

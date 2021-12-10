@@ -18,9 +18,6 @@ public class PageRequestDTO { //JPA 쪽에서 사용하는 Pageable 타입의 �
     private String type;
     private String keyword;
 
-
-
-
     public PageRequestDTO(){
         this.page = 1;
         this.size = 10;
